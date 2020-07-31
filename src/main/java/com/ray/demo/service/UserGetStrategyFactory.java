@@ -22,9 +22,9 @@ public class UserGetStrategyFactory {
         return userGetStrategy.processAllUserInfo();
     }
 
-    @RequestMapping("/user/{acoountNumber}")
-    public User getUserByAccountNumber(@PathVariable("acoountNumber") String accountNumber) {
-        return userGetStrategy.getUserById(accountNumber);
+    @RequestMapping("/user/{id}")
+    public User getUserById(@PathVariable("id") String id) {
+        return userGetStrategy.getUserById(id);
     }
 }
 
