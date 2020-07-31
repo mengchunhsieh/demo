@@ -1,14 +1,14 @@
 package com.ray.demo.model;
 
 import lombok.Getter;
-
 import java.util.Date;
-import java.util.function.Predicate;
 
 @Getter
 public class Transaction {
 
-    private String accountNumber;
+    private String id;
+
+    private String transactionId;
 
     private String billing;
 
@@ -16,8 +16,9 @@ public class Transaction {
 
     private Date date;
 
-    public Transaction (String email, String billing, String subscriptions, Date date) {
-        this.accountNumber = email;
+    public Transaction (String email, String transactionId, String billing, String subscriptions, Date date) {
+        this.id = email;
+        this.transactionId = transactionId;
         this.billing = billing;
         this.subscriptions = subscriptions;
         this.date = date;
