@@ -5,9 +5,19 @@ import com.ray.demo.model.User;
 import org.springframework.stereotype.Service;
 import java.util.function.Predicate;
 
+
+/**
+ * Service layer for User Functions
+ */
 @Service
 public class UserGetStrategy {
 
+    /**
+     * To get all Users
+     * TODO: Query Data Base if there is any.
+     *
+     * @return all transaction
+     */
     public UserResponse processAllUserInfo() {
         UserResponse response = new UserResponse();
         response.setUser(new User("user0@gmail.com", "User0", "0000000000"));
@@ -18,6 +28,11 @@ public class UserGetStrategy {
         return response;
     }
 
+    /**
+     * To get user by Id
+     * @param id user id a.k.a user email
+     * @return response of selected user
+     */
     public UserResponse getUserById(String id) {
         UserResponse response = new UserResponse();
         Predicate<User> byId = u -> u.getId().equals(id);
@@ -26,6 +41,11 @@ public class UserGetStrategy {
         return response;
     }
 
+    /**
+     * Filter for Id
+     * @param strategy strategy for user id
+     * @return selected user
+     */
     public User filterUsers(Predicate<User> strategy) {
         return processAllUserInfo().getUserList().stream().filter(strategy).findFirst().orElse(null);
     }
