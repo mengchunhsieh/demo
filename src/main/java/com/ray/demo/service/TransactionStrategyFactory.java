@@ -28,7 +28,7 @@ public class TransactionStrategyFactory {
      * @throws ParseException
      */
     public TransactionResponse getTransactionByDate(String date) throws ParseException {
-        Date targetDate = new SimpleDateFormat("yyyy-mm-dd").parse(date);
+        Date targetDate = new SimpleDateFormat("yyyy-mm-dd-hh").parse(date);
         return transactionStrategy.getTransactionByDate(targetDate);
     }
 
@@ -51,7 +51,7 @@ public class TransactionStrategyFactory {
      * @throws ParseException
      */
     public TransactionResponse getTransactionByIdAndDate(String id, String date) throws ParseException{
-        Date targetDate = new SimpleDateFormat("yyyy-mm-dd").parse(date);
+        Date targetDate = new SimpleDateFormat("yyyy-mm-dd-hh").parse(date);
         return transactionStrategy.getTransactionByIdAndDate(id, targetDate);
     }
 

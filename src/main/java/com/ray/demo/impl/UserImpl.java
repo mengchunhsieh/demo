@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.inject.Inject;
+import java.text.ParseException;
 
 /**
  * Implementation for User controller
@@ -27,7 +28,7 @@ public class UserImpl {
      * @return aLL users
      */
     @RequestMapping("/users")
-    public UserResponse getAllUserInfo() {
+    public UserResponse getAllUserInfo() throws ParseException {
         return userGetStrategyFactory.getAllUserInfo();
     }
 
@@ -38,7 +39,7 @@ public class UserImpl {
      * @return select user
      */
     @RequestMapping("/user/{id}")
-    public UserResponse getUserById(@PathVariable("id") String id) {
+    public UserResponse getUserById(@PathVariable("id") String id) throws ParseException {
         return userGetStrategyFactory.getUserById(id);
     }
 

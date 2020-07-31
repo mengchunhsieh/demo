@@ -3,6 +3,7 @@ package com.ray.demo.service;
 import com.ray.demo.model.UserResponse;
 import org.springframework.stereotype.Service;
 import javax.inject.Inject;
+import java.text.ParseException;
 
 /**
  * Service layer for user get functions
@@ -22,7 +23,7 @@ public class UserGetStrategyFactory {
      *
      * @return all transaction
      */
-    public UserResponse getAllUserInfo() {
+    public UserResponse getAllUserInfo() throws ParseException {
         return userGetStrategy.processAllUserInfo();
     }
 
@@ -32,7 +33,7 @@ public class UserGetStrategyFactory {
      * @param id user id a.k.a user email
      * @return response of selected user
      */
-    public UserResponse getUserById(String id) {
+    public UserResponse getUserById(String id) throws ParseException {
         return userGetStrategy.getUserById(id);
     }
 }

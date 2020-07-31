@@ -10,7 +10,7 @@ import java.util.List;
  * Response for User functions
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonPropertyOrder({ "user" })
+@JsonPropertyOrder({ "user"})
 public class UserResponse {
 
     /**
@@ -37,4 +37,39 @@ public class UserResponse {
     public List<User> getUserList() {
         return this.userList;
     }
+
+
+//    /**
+//     * list of transaction for response
+//     */
+//    @JsonProperty("transaction")
+//    @JsonPropertyDescription("transaction response")
+//    private List<Transaction> transactionList = new ArrayList<>();
+//
+//    /**
+//     * setter for transaction list
+//     * @param transaction
+//     */
+//    @JsonProperty("transaction")
+//    public void setTransaction(Transaction transaction) {
+//        this.transactionList.add(transaction);
+//    }
+//
+//    /**
+//     * setter for transaction list
+//     * @param transaction
+//     */
+//    @JsonProperty("transaction")
+//    public void setTransaction(List<Transaction> transaction) {
+//        this.transactionList = transaction;
+//    }
+//
+//    /**
+//     * getter for transaction list
+//     * @return
+//     */
+//    @JsonProperty("transaction")
+//    public List<Transaction> getTransactionList() {
+//        return this.transactionList;
+//    }
 }

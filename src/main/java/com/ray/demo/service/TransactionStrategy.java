@@ -27,29 +27,33 @@ public class TransactionStrategy {
     public TransactionResponse processAllTransaction() throws ParseException {
         TransactionResponse response = new TransactionResponse();
 
+        //User0
         response.setTransaction(new Transaction("user0","0001", "type0","user0_Billing","user0_Sub",
-                                new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-02")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-02-00")));
 
+        //User1
         response.setTransaction(new Transaction("user1", "0101","type0","user1_Billing", "user1_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-02")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-02-02")));
 
         response.setTransaction(new Transaction("user1", "0102", "type1","user1_Billing", "user1_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-03")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-03-00")));
 
+        //User2
         response.setTransaction(new Transaction("user2", "0201", "type1","user2_Billing", "user2_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-01")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-01-00")));
 
         response.setTransaction(new Transaction("user2", "0202", "type2","user2_Billing", "user2_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-03")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-03-01")));
 
         response.setTransaction(new Transaction("user2", "0203","type1","user2_Billing", "user2_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-03")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-03-01")));
 
+        //User3
         response.setTransaction(new Transaction("user3", "0301","type0","user3_Billing", "user3_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-02")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-02-02")));
 
         response.setTransaction(new Transaction("user3", "0302","type1","user3_Billing", "user3_Sub",
-                            new SimpleDateFormat("yyyy-mm-dd").parse("2020-01-03")));
+                                new SimpleDateFormat("yyyy-mm-dd-hh").parse("2020-01-03-01")));
 
         return response;
     }
