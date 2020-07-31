@@ -3,6 +3,7 @@ package com.ray.demo.model;
 import lombok.Getter;
 
 import java.util.Date;
+import java.util.function.Predicate;
 
 @Getter
 public class Transaction {
@@ -20,7 +21,7 @@ public class Transaction {
         this.billing = billing;
         this.subscriptions = subscriptions;
         this.date = date;
-
     }
+
 
 }

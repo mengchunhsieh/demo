@@ -12,14 +12,13 @@ public class UserFactory {
 
     public List<User> processAllUserInfo() {
         List<User> userList = new ArrayList<>();
-        userList.add(new User("demoUser0@gmail.com"));
-        userList.add(new User("demoUser1@gmail.com"));
-        userList.add(new User("demoUser2@gmail.com"));
-        userList.add(new User("demoUser3@gmail.com"));
+        userList.add(new User("user0@gmail.com", "User0", "0000000000"));
+        userList.add(new User("user1@gmail.com", "User1", "1111111111"));
+        userList.add(new User("user2@gmail.com", "User2", "2222222222"));
+        userList.add(new User("user3@gmail.com", "User3", "3333333333"));
 
         return userList;
     }
-
 
     public User getUserByAccountNumber(String accountNumber) {
         Predicate<User> byAccountNum = u -> u.getAccountNumber().equals(accountNumber);
