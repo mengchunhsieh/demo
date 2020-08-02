@@ -1,6 +1,7 @@
-# demo
+# demo Note
 - JDK 1.8
 - MAVEN VERSION 3.6.1
+- Default port 8081
 
 #To Deploy Project
 - 1.) mvn clean install
