@@ -1,7 +1,9 @@
 package com.ray.demo.impl;
 
 import com.ray.demo.model.TransactionResponse;
-import com.ray.demo.service.TransactionStrategyFactory;
+import com.ray.demo.service.TransactionGetStrategyFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,10 +18,22 @@ import java.text.ParseException;
 public class TransactionImpl {
 
     /**
-     * The {@link TransactionStrategyFactory}.
+     * The {@link TransactionGetStrategyFactory}.
      */
     @Inject
-    TransactionStrategyFactory transactionStrategyFactory;
+    TransactionGetStrategyFactory transactionGetStrategyFactory;
+    /**
+     * To all transaction.
+     *
+     * @return All Transaction
+     * @throws ParseException
+     */
+    @RequestMapping("/transactions")
+    public ResponseEntity<TransactionResponse> getAllTransaction() throws ParseException {
+        TransactionResponse transactionResponse = transactionGetStrategyFactory.getAllTransaction();
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
+    }
 
     /**
      * To get target transactions that is selected by Date.
@@ -29,19 +43,10 @@ public class TransactionImpl {
      * @throws ParseException
      */
     @RequestMapping("/transaction/{date}")
-    public TransactionResponse getTransactionByDate(@PathVariable("date") String date) throws ParseException {
-        return transactionStrategyFactory.getTransactionByDate(date);
-    }
-
-    /**
-     * To all transaction.
-     *
-     * @return All Transaction
-     * @throws ParseException
-     */
-    @RequestMapping("/transactions")
-    public TransactionResponse getAllTransaction() throws ParseException {
-        return transactionStrategyFactory.getAllTransaction();
+    public ResponseEntity<TransactionResponse> getTransactionByDate(@PathVariable("date") String date) throws ParseException {
+        TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByDate(date);
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
     }
 
     /**
@@ -53,9 +58,11 @@ public class TransactionImpl {
      * @throws ParseException
      */
     @RequestMapping("/transactionsIdDate/{id}/{date}")
-    public TransactionResponse getTransactionByIdAndDate(@PathVariable("id") String id,
+    public ResponseEntity<TransactionResponse> getTransactionByIdAndDate(@PathVariable("id") String id,
                                                          @PathVariable("date") String date) throws ParseException{
-        return transactionStrategyFactory.getTransactionByIdAndDate(id, date);
+        TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByIdAndDate(id, date);
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
     }
 
     /**
@@ -67,8 +74,10 @@ public class TransactionImpl {
      * @throws ParseException
      */
     @RequestMapping("/transactionsIdType/{id}/{type}")
-    public TransactionResponse getTransactionByIdAndType(@PathVariable("id") String id,
+    public ResponseEntity<TransactionResponse> getTransactionByIdAndType(@PathVariable("id") String id,
                                                          @PathVariable("type") String type) throws ParseException{
-        return transactionStrategyFactory.getTransactionByIdAndType(id, type);
+        TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByIdAndType(id, type);
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
     }
 }

@@ -1,0 +1,71 @@
+package com.ray.demo.service;
+
+import com.ray.demo.impl.TransactionImpl;
+import com.ray.demo.model.TransactionResponse;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.testng.annotations.Test;
+
+import java.text.ParseException;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.MockitoAnnotations.initMocks;
+import static org.testng.Assert.assertEquals;
+
+public class TransactionImplTest {
+
+    @Test
+    public void getAllTransactionSuccessTest() throws ParseException {
+        TestContext testContext = new TestContext();
+        ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl.getAllTransaction();
+        assertEquals(responseResponseEntity.getStatusCode(), HttpStatus.OK);
+    }
+
+    @Test
+    public void getTransactionByDateSuccessTest() throws ParseException {
+        TestContext testContext = new TestContext();
+        ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
+                .getTransactionByDate(any(String.class));
+        assertEquals(responseResponseEntity.getStatusCode(), HttpStatus.OK);
+    }
+
+    @Test
+    public void getTransactionByIdAndDateSuccessTest() throws ParseException {
+        TestContext testContext = new TestContext();
+        ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
+                .getTransactionByIdAndDate(any(String.class), any(String.class));
+        assertEquals(responseResponseEntity.getStatusCode(), HttpStatus.OK);
+    }
+
+    @Test
+    public void getTransactionByIdAndTypeSuccessTest() throws ParseException {
+        TestContext testContext = new TestContext();
+        ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
+                .getTransactionByIdAndType(any(String.class), any(String.class));
+        assertEquals(responseResponseEntity.getStatusCode(), HttpStatus.OK);
+    }
+
+    /**
+     * Test context class
+     */
+    private class TestContext {
+
+        @InjectMocks
+        private TransactionImpl transactionImpl;
+
+        @Mock
+        private TransactionGetStrategyFactory transactionGetStrategyFactory;
+
+        @Mock
+        private TransactionGetStrategy transactionGetStrategy;
+
+        /**
+         *  The constructor
+         */
+        public TestContext() {
+            initMocks(this);
+        }
+    }
+}

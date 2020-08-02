@@ -1,8 +1,10 @@
 package com.ray.demo.impl;
 
 import com.ray.demo.model.UserResponse;
-import com.ray.demo.service.TransactionStrategyFactory;
+import com.ray.demo.service.TransactionGetStrategyFactory;
 import com.ray.demo.service.UserGetStrategyFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +19,7 @@ import java.text.ParseException;
 public class UserImpl {
 
     /**
-     * The {@link TransactionStrategyFactory}.
+     * The {@link TransactionGetStrategyFactory}.
      */
     @Inject
     UserGetStrategyFactory userGetStrategyFactory;
@@ -28,8 +30,10 @@ public class UserImpl {
      * @return aLL users
      */
     @RequestMapping("/users")
-    public UserResponse getAllUserInfo() throws ParseException {
-        return userGetStrategyFactory.getAllUserInfo();
+    public ResponseEntity<UserResponse> getAllUserInfo() throws ParseException {
+        UserResponse userResponse = userGetStrategyFactory.getAllUserInfo();
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<UserResponse>(userResponse,HttpStatus.OK);
     }
 
     /**
@@ -39,8 +43,10 @@ public class UserImpl {
      * @return select user
      */
     @RequestMapping("/user/{id}")
-    public UserResponse getUserById(@PathVariable("id") String id) throws ParseException {
-        return userGetStrategyFactory.getUserById(id);
+    public ResponseEntity<UserResponse> getUserById(@PathVariable("id") String id) throws ParseException {
+        UserResponse userResponse = userGetStrategyFactory.getUserById(id);
+        //TODO: verify data to return different Http Status
+        return new ResponseEntity<UserResponse>(userResponse,HttpStatus.OK);
     }
 
 }
