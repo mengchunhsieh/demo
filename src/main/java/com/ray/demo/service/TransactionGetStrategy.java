@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * Service layer for Transaction Functions
  */
 @Service
-public class TransactionStrategy {
+public class TransactionGetStrategy {
 
     /**
      * To get all transactions

@@ -1,7 +1,7 @@
 package com.ray.demo.impl;
 
 import com.ray.demo.model.UserResponse;
-import com.ray.demo.service.TransactionStrategyFactory;
+import com.ray.demo.service.TransactionGetStrategyFactory;
 import com.ray.demo.service.UserGetStrategyFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import java.text.ParseException;
 public class UserImpl {
 
     /**
-     * The {@link TransactionStrategyFactory}.
+     * The {@link TransactionGetStrategyFactory}.
      */
     @Inject
     UserGetStrategyFactory userGetStrategyFactory;

@@ -17,14 +17,14 @@ import static org.testng.Assert.assertEquals;
 public class TransactionImplTest {
 
     @Test
-    public void getAllTransactionTest() throws ParseException {
+    public void getAllTransactionSuccessTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl.getAllTransaction();
         assertEquals(responseResponseEntity.getStatusCode(), HttpStatus.OK);
     }
 
     @Test
-    public void getTransactionByDateTest() throws ParseException {
+    public void getTransactionByDateSuccessTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
                 .getTransactionByDate(any(String.class));
@@ -32,7 +32,7 @@ public class TransactionImplTest {
     }
 
     @Test
-    public void getTransactionByIdAndDateTest() throws ParseException {
+    public void getTransactionByIdAndDateSuccessTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
                 .getTransactionByIdAndDate(any(String.class), any(String.class));
@@ -40,7 +40,7 @@ public class TransactionImplTest {
     }
 
     @Test
-    public void getTransactionByIdAndTypeTest() throws ParseException {
+    public void getTransactionByIdAndTypeSuccessTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<TransactionResponse> responseResponseEntity = testContext.transactionImpl
                 .getTransactionByIdAndType(any(String.class), any(String.class));
@@ -56,10 +56,10 @@ public class TransactionImplTest {
         private TransactionImpl transactionImpl;
 
         @Mock
-        private TransactionStrategyFactory transactionStrategyFactory;
+        private TransactionGetStrategyFactory transactionGetStrategyFactory;
 
         @Mock
-        private  TransactionStrategy transactionStrategy;
+        private TransactionGetStrategy transactionGetStrategy;
 
         /**
          *  The constructor

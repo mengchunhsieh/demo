@@ -12,13 +12,23 @@ import java.util.Date;
  * Service layer factory for transaction functions
  */
 @Service
-public class TransactionStrategyFactory {
+public class TransactionGetStrategyFactory {
 
     /**
-     * The {@link TransactionStrategy }.
+     * The {@link TransactionGetStrategy }.
      */
     @Inject
-    TransactionStrategy transactionStrategy;
+    TransactionGetStrategy transactionGetStrategy;
+
+    /**
+     * To get all transactions
+     *
+     * @return all transaction
+     * @throws ParseException
+     */
+    public TransactionResponse getAllTransaction() throws ParseException {
+        return transactionGetStrategy.processAllTransaction();
+    }
 
     /**
      * To get transaction that is selected by Date
@@ -29,17 +39,7 @@ public class TransactionStrategyFactory {
      */
     public TransactionResponse getTransactionByDate(String date) throws ParseException {
         Date targetDate = new SimpleDateFormat("yyyy-mm-dd-hh").parse(date);
-        return transactionStrategy.getTransactionByDate(targetDate);
-    }
-
-    /**
-     * To get all transactions
-     *
-     * @return all transaction
-     * @throws ParseException
-     */
-    public TransactionResponse getAllTransaction() throws ParseException {
-        return transactionStrategy.processAllTransaction();
+        return transactionGetStrategy.getTransactionByDate(targetDate);
     }
 
     /**
@@ -52,7 +52,7 @@ public class TransactionStrategyFactory {
      */
     public TransactionResponse getTransactionByIdAndDate(String id, String date) throws ParseException{
         Date targetDate = new SimpleDateFormat("yyyy-mm-dd-hh").parse(date);
-        return transactionStrategy.getTransactionByIdAndDate(id, targetDate);
+        return transactionGetStrategy.getTransactionByIdAndDate(id, targetDate);
     }
 
     /**
@@ -64,6 +64,6 @@ public class TransactionStrategyFactory {
      * @throws ParseException
      */
     public TransactionResponse getTransactionByIdAndType(String id, String type) throws ParseException {
-        return transactionStrategy.getTransactionByIdAndType(id, type);
+        return transactionGetStrategy.getTransactionByIdAndType(id, type);
     }
 }
