@@ -16,15 +16,25 @@ import static org.testng.Assert.assertEquals;
 
 public class UserImplTest {
 
+    /**
+     * Test get All User Info
+     *
+     * @throws ParseException
+     */
     @Test
-    public void getAllUserInfoSuccessTest() throws ParseException {
+    public void getAllUserInfoTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<UserResponse> responseEntity = testContext.userImpl.getAllUserInfo();
         assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
     }
 
+    /**
+     * Test get User By Id
+     *
+     * @throws ParseException
+     */
     @Test
-    public void getUserByIdSuccessTest() throws ParseException {
+    public void getUserByIdTest() throws ParseException {
         TestContext testContext = new TestContext();
         ResponseEntity<UserResponse> responseEntity = testContext.userImpl.getUserById(any(String.class));
         assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);

@@ -14,6 +14,10 @@ import static org.mockito.MockitoAnnotations.initMocks;
 
 public class TransactionGetStrategyFactoryTest {
 
+    /**
+     * Test get All Transaction
+     * @throws ParseException
+     */
     @Test
     public void getAllTransactionTest() throws ParseException {
         TestContext testContext = new TestContext();
@@ -21,6 +25,11 @@ public class TransactionGetStrategyFactoryTest {
         verify(testContext.transactionGetStrategy, times(1)).processAllTransaction();
     }
 
+    /**
+     * Test get Transaction By Date
+     *
+     * @throws ParseException
+     */
     @Test
     public void getTransactionByDateTest() throws ParseException {
         TestContext testContext = new TestContext();
@@ -28,6 +37,11 @@ public class TransactionGetStrategyFactoryTest {
         verify(testContext.transactionGetStrategy, times(1)).getTransactionByDate(testContext.date);
     }
 
+    /**
+     * Test get Transaction By Id And Date
+     *
+     * @throws ParseException
+     */
     @Test
     public void getTransactionByIdAndDateTest() throws ParseException {
         TestContext testContext = new TestContext();
@@ -35,6 +49,11 @@ public class TransactionGetStrategyFactoryTest {
         verify(testContext.transactionGetStrategy, times(1)).getTransactionByIdAndDate(testContext.testUser, testContext.date);
     }
 
+    /**
+     * Test get Transaction By Id And Type
+     *
+     * @throws ParseException
+     */
     @Test
     public void getTransactionByIdAndTypeTest() throws ParseException {
         TestContext testContext = new TestContext();

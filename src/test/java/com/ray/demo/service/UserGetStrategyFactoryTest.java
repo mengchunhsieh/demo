@@ -14,6 +14,11 @@ import static org.mockito.Mockito.verify;
 
 public class UserGetStrategyFactoryTest {
 
+    /**
+     * Test get All User Info
+     *
+     * @throws ParseException
+     */
     @Test
     public void getAllUserInfoTest() throws ParseException {
         TestContext testContext = new TestContext();
@@ -21,6 +26,11 @@ public class UserGetStrategyFactoryTest {
         verify(testContext.userGetStrategy, times(1)).processAllUserInfo();
     }
 
+    /**
+     * Test get User By Id
+     *
+     * @throws ParseException
+     */
     @Test
     public void getUserByIdTest() throws ParseException {
         TestContext testContext = new TestContext();
