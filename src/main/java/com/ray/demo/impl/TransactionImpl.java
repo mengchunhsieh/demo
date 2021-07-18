@@ -2,6 +2,7 @@ package com.ray.demo.impl;
 
 import com.ray.demo.model.TransactionResponse;
 import com.ray.demo.service.TransactionGetStrategyFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import java.text.ParseException;
  * Implementation for Transaction Controllers
  */
 @RestController
+@Slf4j
 public class TransactionImpl {
 
     /**
@@ -30,6 +32,7 @@ public class TransactionImpl {
      */
     @RequestMapping("/transactions")
     public ResponseEntity<TransactionResponse> getAllTransaction() throws ParseException {
+        log.info("API path: /transactions");
         TransactionResponse transactionResponse = transactionGetStrategyFactory.getAllTransaction();
         //TODO: verify data to return different Http Status
         return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
@@ -44,6 +47,7 @@ public class TransactionImpl {
      */
     @RequestMapping("/transaction/{date}")
     public ResponseEntity<TransactionResponse> getTransactionByDate(@PathVariable("date") String date) throws ParseException {
+        log.info("API path: /transaction/{date}");
         TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByDate(date);
         //TODO: verify data to return different Http Status
         return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
@@ -60,6 +64,7 @@ public class TransactionImpl {
     @RequestMapping("/transactionsIdDate/{id}/{date}")
     public ResponseEntity<TransactionResponse> getTransactionByIdAndDate(@PathVariable("id") String id,
                                                          @PathVariable("date") String date) throws ParseException{
+        log.info("API path: /transactionsIdDate/{id}/{date}");
         TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByIdAndDate(id, date);
         //TODO: verify data to return different Http Status
         return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
@@ -76,6 +81,7 @@ public class TransactionImpl {
     @RequestMapping("/transactionsIdType/{id}/{type}")
     public ResponseEntity<TransactionResponse> getTransactionByIdAndType(@PathVariable("id") String id,
                                                          @PathVariable("type") String type) throws ParseException{
+        log.info("API path: /transactionsIdType/{id}/{type}");
         TransactionResponse transactionResponse = transactionGetStrategyFactory.getTransactionByIdAndType(id, type);
         //TODO: verify data to return different Http Status
         return new ResponseEntity<TransactionResponse>(transactionResponse, HttpStatus.OK);
