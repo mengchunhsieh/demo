@@ -25,6 +25,7 @@ public class UserGetStrategyFactory {
      */
     public UserResponse getAllUserInfo() throws ParseException {
         return userGetStrategy.processAllUserInfo();
+//        return userGetStrategy.
     }
 
     /**

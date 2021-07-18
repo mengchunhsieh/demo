@@ -3,8 +3,12 @@ package com.ray.demo.service;
 import com.ray.demo.model.Transaction;
 import com.ray.demo.model.UserResponse;
 import com.ray.demo.model.User;
+//import com.ray.demo.repository.UserRepository;
+//import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+//import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.stereotype.Service;
 
+//import javax.inject.Inject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -17,7 +21,13 @@ import java.util.function.Predicate;
  */
 @Service
 public class UserGetStrategy {
-
+//
+//    @Inject
+//    UserRepository userRepository;
+//
+//    public UserResponse getAllUsers() {
+//        return this.userRepository.findAll();
+//    }
     /**
      * To get all Users
      * TODO: Query Data Base if there is any.
